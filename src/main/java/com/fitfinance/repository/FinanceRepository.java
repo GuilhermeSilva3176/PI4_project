@@ -9,4 +9,5 @@ import java.util.List;
 public interface FinanceRepository extends JpaRepository<Finance, Long> {
     List<Finance> findByNameContaining(String name);
     List<Finance> findByType(FinanceType type);
+    List<Finance> findByUserId(Long id);
 }

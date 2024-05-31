@@ -1,5 +1,6 @@
 package com.fitfinance.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fitfinance.domain.FinanceType;
 import com.fitfinance.domain.User;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,5 +29,6 @@ public class FinanceGetResponse {
     @Schema(description = "Finance's end date", example = "2021-01-31")
     private LocalDate endDate;
     @Schema(description = "Finance's user", example = "User")
+    @JsonIgnore
     private User user;
 }

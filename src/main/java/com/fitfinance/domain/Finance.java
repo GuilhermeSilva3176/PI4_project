@@ -19,6 +19,7 @@ public class Finance {
     private String name;
     @Column(nullable = false)
     private double value;
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private FinanceType type;
     @Column(nullable = false)

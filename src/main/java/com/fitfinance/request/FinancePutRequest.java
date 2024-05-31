@@ -2,8 +2,8 @@ package com.fitfinance.request;
 
 import com.fitfinance.domain.FinanceType;
 import com.fitfinance.domain.User;
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @Setter
 @ToString
 public class FinancePutRequest {
+    @NotNull
+    private Long id;
     @NotBlank(message = "The field 'name' is required")
     private String name;
     @NotBlank(message = "The field 'value' is required")

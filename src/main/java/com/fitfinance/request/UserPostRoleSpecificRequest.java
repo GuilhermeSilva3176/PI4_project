@@ -1,6 +1,5 @@
 package com.fitfinance.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,15 +12,13 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class UserPostRequest {
+public class UserPostRoleSpecificRequest {
     @NotBlank(message = "The field 'name' is required")
     @Schema(description = "User's name", example = "Menor Oakley")
     private String name;
     @NotBlank(message = "The field 'CPF' is required")
     @Schema(description = "User's CPF", example = "111.222.333-44")
     private String cpf;
-    @JsonIgnore
-    private String username;
     @NotBlank(message = "The field 'password' is required")
     private String password;
     @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,8}$", message = "The email format is not valid")

@@ -3,9 +3,6 @@ package com.fitfinance.request;
 import com.fitfinance.domain.FinanceType;
 import com.fitfinance.domain.User;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +21,7 @@ public class FinancePostRequest {
     @Schema(description = "Finance's value", example = "150.00")
     private double value;
     @NotBlank(message = "The field 'type' is required")
-    @Schema(description = "Finance's type", example = "Income")
+    @Schema(description = "Finance's type", example = "INCOME")
     private FinanceType type;
     @NotBlank(message = "The field 'description' is required")
     @Schema(description = "Finance's description", example = "Finance...")
@@ -33,7 +30,6 @@ public class FinancePostRequest {
     private LocalDate startDate;
     @NotBlank(message = "The field 'endDate' is required")
     private LocalDate endDate;
-    @NotBlank(message = "The field 'user' is required")
     @Schema(description = "Finance's user", example = "User")
     private User user;
 }

@@ -68,7 +68,7 @@ public class AdminConfig implements CommandLineRunner {
         String jwtToken = service.generateToken(user);
         var token = Token.builder()
                 .user(user)
-                .token(jwtToken)
+                .tokenString(jwtToken)
                 .tokenType(TokenType.BEARER)
                 .expired(false)
                 .revoked(false)

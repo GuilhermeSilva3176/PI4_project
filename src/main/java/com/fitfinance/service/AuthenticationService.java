@@ -13,6 +13,7 @@ import com.fitfinance.response.AuthenticationResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class AuthenticationService {
     private final UserRepository repository;
     private final TokenRepository tokenRepository;
@@ -29,29 +31,20 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     @Transactional
-    public AuthenticationResponse register(RegisterRequest request) {
+    public User register(RegisterRequest request) {
         var userPostRequest = UserPostRequest.builder()
                 .name(request.getName())
                 .cpf(request.getCpf())
                 .email(request.getEmail())
                 .password(request.getPassword())
-                .username(request.getUsername())
                 .phone(request.getPhone())
                 .birthdate(request.getBirthdate())
                 .income(request.getIncome())
                 .build();
 
         var user = mapper.toUser(userPostRequest);
-        var savedUser = userService.createUser(user);
 
-        var jwtToken = jwtService.generateToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
-        saveUserToken(savedUser, jwtToken);
-
-        return AuthenticationResponse.builder()
-                .accessToken(jwtToken)
-                .refreshToken(refreshToken)
-                .build();
+        return userService.createUser(user);
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
@@ -73,7 +66,7 @@ public class AuthenticationService {
     private void saveUserToken(User user, String jwtToken) {
         var token = Token.builder()
                 .user(user)
-                .token(jwtToken)
+                .tokenString(jwtToken)
                 .tokenType(TokenType.BEARER)
                 .expired(false)
                 .revoked(false)
@@ -107,6 +100,8 @@ public class AuthenticationService {
             if (jwtService.isTokenValid(refreshToken, user)) {
                 var accessToken = jwtService.generateToken(user);
                 revokeAllUserTokens(user);
+                log.info("new access token: {}", accessToken);
+                log.info("refresh token: {}", refreshToken);
                 saveUserToken(user, accessToken);
                 return AuthenticationResponse.builder()
                         .accessToken(accessToken)

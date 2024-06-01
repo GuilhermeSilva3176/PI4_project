@@ -21,8 +21,6 @@ public class RegisterRequest {
     private String email;
     @NotBlank(message = "The field 'password' is required")
     private String password;
-    @Schema(description = "User's username", example = "john_doe")
-    private String username;
     @Schema(description = "User's phone", example = "+55 11 91234-5678")
     private String phone;
     @Schema(description = "User's birthdate", example = "1990-01-01")

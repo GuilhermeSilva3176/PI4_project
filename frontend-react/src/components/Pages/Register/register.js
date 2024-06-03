@@ -1,11 +1,72 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './register.css';
 import MinimalHeader from '../../Global/minimalHeader';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import classNames from "classnames";
+import {Container, Form, Row} from "react-bootstrap";
+import InputComponent from "./components/InputComponent";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-function Registrar() {
-    let inputClasses = classNames('row-margin');
+const Registrar = () => {
+    const [name, setName] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [birthdate, setBirthdate] = useState('');
+    const [phone, setPhone] = useState('');
+    const [income, setIncome] = useState('');
+
+    let navigate = useNavigate();
+    const goToLogin = () => {
+        navigate('/login');
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const registerRequest = {
+            name: name,
+            cpf: cpf,
+            email: email,
+            password: password,
+            birthdate: birthdate,
+            phone: phone,
+            income: income
+        }
+
+        axios.post('http://localhost:8080/api/v1/auth/register', registerRequest)
+            .then(response => {
+                if (response.status === 201) {
+                    localStorage.setItem('user-name', response.data.name)
+                }
+            })
+            .then(() => {
+                alert('Usuário registrado com sucesso!')
+                goToLogin()
+
+            })
+            .catch(error => {
+                alert('Erro ao registrar usuário: ' + error)
+            });
+    }
+
+    const handleCpf = (event) => {
+        let value = event.target.value;
+        let cpfPattern = value.replace(/\D/g, '') // Remove qualquer coisa que não seja número
+            .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o terceiro dígito
+            .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o sexto dígito
+            .replace(/(\d{3})(\d)/, '$1-$2') // Adiciona traço após o nono dígito
+            .replace(/(-\d{2})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
+        setCpf(cpfPattern);
+    }
+
+    const handlePhone = (event) => {
+        let value = event.target.value;
+        let phonePattern = value.replace(/\D/g, '') // Remove qualquer coisa que não seja número
+            .replace(/(\d{2})(\d)/, '($1) $2') // Adiciona parênteses após o segundo dígito
+            .replace(/(\d{5})(\d)/, '$1-$2') // Adiciona traço após o quinto dígito
+            .replace(/(-\d{4})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
+        setPhone(phonePattern);
+    }
 
     return (
         <div className="bodyValue">
@@ -14,57 +75,31 @@ function Registrar() {
                 <div className="flutuante">
                     <div className="cadastro-box">
                         <h1>Registrar</h1>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Row className="row-margin">
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>Nome</p>
-                                        <input type="text" name="nome" required/>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>CPF</p>
-                                        <input type="text" name="cpf" required/>
-                                    </div>
-                                </Col>
+                                <InputComponent label="Nome" inputType="text" value={name}
+                                                onChange={(event) => setName(event.target.value)}/>
+                                <InputComponent label="CPF" inputType="text" value={cpf}
+                                                onChange={handleCpf}/>
                             </Row>
                             <Row className="row-margin">
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>Email</p>
-                                        <input type="email" name="email" required/>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>Senha</p>
-                                        <input type="password" name="senha" required/>
-                                    </div>
-                                </Col>
+                                <InputComponent label="Email" inputType="email" value={email}
+                                                onChange={(event) => setEmail(event.target.value)}/>
+                                <InputComponent label="Senha" inputType="password" value={password}
+                                                onChange={(event) => setPassword(event.target.value)}/>
                             </Row>
                             <Row className="row-margin">
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>Nascimento</p>
-                                        <input type="date" name="data" required/>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="textboxCad">
-                                        <p>Telefone</p>
-                                        <input type="text" name="telefone" required/>
-                                    </div>
-                                </Col>
-                            </Row>
-                            <Row className={inputClasses}>
-                                    <div className="textboxCad">
-                                        <p>Renda</p>
-                                        <input type="number" name="renda" required/>
-                                    </div>
+                                <InputComponent label="Nascimento" inputType="date" value={birthdate}
+                                                onChange={(event) => setBirthdate(event.target.value)}/>
+                                <InputComponent label="Telefone" inputType="tel" value={phone}
+                                                onChange={handlePhone}/>
                             </Row>
                             <Row className="row-margin">
-                                <Button className="btnCad" type="submit">Registrar</Button>
+                                <InputComponent label="Renda" inputType="number" value={income}
+                                                onChange={(event) => setIncome(event.target.value)}/>
+                            </Row>
+                            <Row className="row-margin">
+                                <button className="btnCad" type="submit">Registrar</button>
                             </Row>
                         </Form>
                     </div>

@@ -3,6 +3,8 @@
 server:
   error:
     include-stacktrace: on_param
+  tomcat:
+    relaxed-query-chars: '|,{,},[,]'
 
 spring:
   datasource:
@@ -19,8 +21,8 @@ logging:
   level:
     org:
       hibernate:
-        SQL: debug
-      springframework.security: DEBUG
+        SQL: INFO
+      springframework.security: INFO
 
 management:
   endpoints:

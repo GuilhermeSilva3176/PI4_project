@@ -2,7 +2,7 @@ logging:
   level:
     root: INFO
     org.hibernate: DEBUG
-    org.springframework: INFO
+    org.springframework: DEBUG
 server:
   error:
     include-binding-errors: ALWAYS

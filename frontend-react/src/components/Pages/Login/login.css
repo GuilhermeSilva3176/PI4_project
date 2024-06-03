@@ -57,14 +57,15 @@
 
 .btn-login {
   margin: 30px 250px 40px 250px;
-  background-color: rgb(36, 74, 165);
+  background-color: rgb(36, 74, 165) !important;
   color: white;
   cursor: pointer;
+  font-size: 20px;
   transition: background-color 0.3s;
 }
 
 .btn-login:hover {
-  background-color: #003274;
+  background-color: #003274 !important;
 }
 
 .textbox p {

@@ -11,7 +11,7 @@ function Hero(){
           No Fit Finance, estamos comprometidos em ser seu parceiro em todas as etapas do seu percurso
           financeiro.
         </p>
-        <input type="button" value="Abra sua conta" className="cadastrarBotao"></input>
+          <button className="cadastrarBotao">Abra sua conta</button>
       </div>
       <div className="img col-md-4">
         <img src="/images/first_home_image.svg" alt="Presentation" className="img-fluid"/>

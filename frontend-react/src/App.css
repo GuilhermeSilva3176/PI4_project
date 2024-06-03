@@ -1,0 +1,5 @@
+@import url(configs/configurationStyle/style.css);
+
+* {
+  color: var( --text-color );
+}

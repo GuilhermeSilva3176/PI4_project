@@ -30,7 +30,7 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<List<UserGetResponse>> getAllUsers() {
+    public ResponseEntity<List<UserGetResponse>> findAllUsers() {
         List<User> allUsers = userService.getAllUsers();
         List<UserGetResponse> userGetResponses = mapper.toUserGetResponses(allUsers);
         return ResponseEntity.ok(userGetResponses);
@@ -38,7 +38,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<UserGetResponse> findUserById(@PathVariable Long id) {
+    public ResponseEntity<UserGetResponse> findById(@PathVariable Long id) {
         var userFound = userService.findById(id);
         var response = mapper.toUserGetResponse(userFound);
         return ResponseEntity.ok(response);
@@ -46,7 +46,7 @@ public class UserController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<UserPostResponse> createUser(@RequestBody @Valid UserPostRequest userPostRequest) {
+    public ResponseEntity<UserPostResponse> create(@RequestBody @Valid UserPostRequest userPostRequest) {
         var user = mapper.toUser(userPostRequest);
         user = userService.createUser(user);
         var response = mapper.toUserPostResponse(user);
@@ -54,21 +54,19 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<UserPostResponse> updateUser(@RequestBody @Valid UserPutRequest userPutRequest) {
+    public ResponseEntity<Void> updateUser(@RequestBody @Valid UserPutRequest userPutRequest) {
         var userToUpdate = mapper.toUser(userPutRequest);
         userService.updateUser(userToUpdate, getUser());
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping
-    public ResponseEntity<Void> changePassword(@RequestBody @Valid ChangePasswordRequest changePasswordRequest,
-                                               Principal connectedUser) {
+    public ResponseEntity<Void> changePassword(@RequestBody @Valid ChangePasswordRequest changePasswordRequest, Principal connectedUser) {
         userService.changePassword(changePasswordRequest, connectedUser);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
     @Transactional
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         userService.delete(id, getUser());

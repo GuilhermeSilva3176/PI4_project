@@ -5,6 +5,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @TestConfiguration
@@ -18,6 +19,7 @@ public class TestRestTemplateConfig {
         var uri = new DefaultUriBuilderFactory("http://localhost:" + port);
         var testRestTemplate = new TestRestTemplate();
         testRestTemplate.setUriTemplateHandler(uri);
+        testRestTemplate.getRestTemplate().setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         return testRestTemplate;
     }
 }

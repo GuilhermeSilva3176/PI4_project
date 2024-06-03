@@ -1,9 +1,10 @@
 package com.fitfinance.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fitfinance.domain.FinanceType;
-import com.fitfinance.domain.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Builder
 @ToString
 public class FinancePostRequest {
     @NotBlank(message = "The field 'name' is required")
@@ -31,5 +33,5 @@ public class FinancePostRequest {
     @NotBlank(message = "The field 'endDate' is required")
     private LocalDate endDate;
     @Schema(description = "Finance's user", example = "User")
-    private User user;
+    private UserPostRequest user;
 }

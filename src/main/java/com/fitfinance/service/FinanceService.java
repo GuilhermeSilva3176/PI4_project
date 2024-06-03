@@ -7,12 +7,14 @@ import com.fitfinance.repository.FinanceRepository;
 import com.fitfinance.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class FinanceService {
     private final FinanceRepository financeRepository;
     private final UserRepository userRepository;
@@ -36,6 +38,7 @@ public class FinanceService {
 
     public void updateFinance(Finance financeToUpdate) {
         Finance foundFinance = findById(financeToUpdate.getId());
+        foundFinance.setUser(financeToUpdate.getUser());
 
         if (!financeToUpdate.getUser().getId().equals(foundFinance.getUser().getId())) {
             throw new SecurityException("User does not have permission");

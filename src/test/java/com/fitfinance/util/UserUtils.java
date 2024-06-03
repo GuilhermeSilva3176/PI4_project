@@ -1,6 +1,7 @@
 package com.fitfinance.util;
 
 import com.fitfinance.domain.User;
+import com.fitfinance.request.UserPostRoleAdminRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -9,31 +10,48 @@ import java.util.Collections;
 public class UserUtils {
     public User createValidUser() {
         return User.builder()
-                .id(99L)
                 .name("Lucas")
                 .cpf("111.222.333-44")
                 .phone("11 91234-5678")
                 .roles("USER")
                 .income(1000.0)
-                .tokens(Collections.emptyList())
                 .email("lucas@fitfinance.com")
                 .password("{bcrypt}$2a$10$RCe/7.jx6GajRcLYHg.1uuKii9LaUPvhMRe21nNDf1cAaCqweLBAO")
                 .birthdate("01/01/1990")
                 .build();
     }
 
-    public User createValidAdminUser() {
-        return User.builder()
-                .id(99L)
+    public UserPostRoleAdminRequest createValidAdminUser() {
+        return UserPostRoleAdminRequest.builder()
                 .name("Lucas")
-                .cpf("111.222.333-44")
+                .cpf("000.000.000-00")
                 .phone("11 91234-5678")
-                .roles("USER")
                 .income(0)
-                .tokens(Collections.emptyList())
-                .email("lucas.admin@fitfinance.com")
+                .email("test.admin@fitfinance.com")
                 .password("{bcrypt}$2a$10$RCe/7.jx6GajRcLYHg.1uuKii9LaUPvhMRe21nNDf1cAaCqweLBAO")
                 .birthdate("01/01/1990")
                 .build();
+    }
+
+    public User createValidWithRandomEmailAndCpfUser() {
+        return User.builder()
+                .name("Lucas")
+                .cpf(generateCpf())
+                .phone("11 91234-5678")
+                .roles("USER")
+                .income(1000.0)
+                .tokens(Collections.emptyList())
+                .email(generateEmail())
+                .password("{bcrypt}$2a$10$RCe/7.jx6GajRcLYHg.1uuKii9LaUPvhMRe21nNDf1cAaCqweLBAO")
+                .birthdate("01/01/1990")
+                .build();
+    }
+
+    public String generateEmail() {
+        return "user" + System.nanoTime() + "@fitfinance.com";
+    }
+
+    public String generateCpf() {
+        return "111." + System.nanoTime() + ".333-44";
     }
 }

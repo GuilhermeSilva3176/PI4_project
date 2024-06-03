@@ -6,7 +6,7 @@ import com.fitfinance.domain.User;
 import com.fitfinance.mapper.UserMapper;
 import com.fitfinance.repository.TokenRepository;
 import com.fitfinance.repository.UserRepository;
-import com.fitfinance.request.UserPostRoleSpecificRequest;
+import com.fitfinance.request.UserPostRoleAdminRequest;
 import com.fitfinance.service.JwtService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class AdminConfig implements CommandLineRunner {
 
         userAdmin.ifPresentOrElse(user -> log.info("User with role 'ADMIN' already exists: {}", user),
                 () -> {
-                    var userPostAdminRequest = UserPostRoleSpecificRequest.builder()
+                    var userPostAdminRequest = UserPostRoleAdminRequest.builder()
                             .name("ADMIN")
                             .email("admin@fitfinance.com")
                             .password("fit-finance-admin")

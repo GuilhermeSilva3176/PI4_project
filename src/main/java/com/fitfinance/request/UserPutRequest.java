@@ -3,14 +3,14 @@ package com.fitfinance.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
+@Builder
 @ToString
 public class UserPutRequest {
     @NotNull
@@ -25,7 +25,7 @@ public class UserPutRequest {
     @NotBlank(message = "The field 'phone' is required")
     private String phone;
     @NotBlank(message = "The field 'birthdate' is required")
-    private LocalDate birthdate;
+    private String birthdate;
     @NotBlank(message = "The field 'income' is required")
     private double income;
 }

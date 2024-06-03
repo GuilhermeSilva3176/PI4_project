@@ -1,0 +1,8 @@
+.pie {
+    margin: 180px 20px;
+}
+  
+.apexcharts-legend {
+   display: flex;
+   flex-direction: column;
+}

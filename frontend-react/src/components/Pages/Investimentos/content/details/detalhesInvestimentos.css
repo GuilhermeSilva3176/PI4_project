@@ -1,0 +1,111 @@
+.detalhes-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.detalhes-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.detalhes-content {
+  background-color: white;
+  width: 1200px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.detalhes-content.active {
+  opacity: 1;
+}
+
+.fecharAba {
+  color: black;
+  background-color: #f72929;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.fecharAba:hover {
+  background-color: #ff9696;
+}
+
+.detalhesTitle {
+  color: black;
+  position: absolute;
+  font-size: 40px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tabela-detalhes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 100px;
+}
+
+.tabela-detalhes th,
+.tabela-detalhes td {
+  padding: 12px;
+  color: black;
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+
+.tabela-detalhes th {
+  background-color: #f2f2f2;
+  color: #333333;
+}
+
+.tabela-detalhes tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabela-detalhes tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+
+#btnAcoesInv {
+  display: block;
+  margin: 5px auto;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: black;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-vender {
+  background-color: #ff8080;
+}
+
+.btn-comprar {
+  background-color: #80acff;
+}
+

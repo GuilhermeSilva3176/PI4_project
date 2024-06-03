@@ -1,0 +1,19 @@
+#hero {
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: calc(100% - 95%);
+  font-size: 18px;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+}
+
+.cadastrarBotao {
+  background-color: rgba(9, 255, 243, 0.616);
+  border-radius: 12px;
+  margin: 16px;
+  width: 150px;
+  height: 40px;
+}

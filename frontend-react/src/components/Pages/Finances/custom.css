@@ -1,0 +1,19 @@
+.page-content {
+  margin-top: 24vh;
+}
+
+.financesTitle {
+  text-align: center;
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  bottom: 100%;
+  border-bottom: white 1px solid;
+  margin-bottom: 20px;
+
+}
+
+.financesTitle h2 {
+  border-bottom: 0.01cm solid white;
+  margin: 0 20vh 25px 20vh;
+}

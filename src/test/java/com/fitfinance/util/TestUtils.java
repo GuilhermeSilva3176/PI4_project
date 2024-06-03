@@ -5,7 +5,7 @@ import org.awaitility.Awaitility;
 import java.time.Duration;
 import java.time.Instant;
 
-public class AsyncTestUtils {
+public class TestUtils {
     public static void waitFor(Duration duration) {
         final Instant startTime = Instant.now();
         Awaitility

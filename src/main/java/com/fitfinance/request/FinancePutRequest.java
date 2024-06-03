@@ -1,9 +1,11 @@
 package com.fitfinance.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fitfinance.domain.FinanceType;
 import com.fitfinance.domain.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,6 +14,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Builder
 @ToString
 public class FinancePutRequest {
     @NotNull
@@ -29,5 +32,6 @@ public class FinancePutRequest {
     @NotBlank(message = "The field 'endDate' is required")
     private LocalDate endDate;
     @NotBlank(message = "The field 'user' is required")
+    @JsonIgnore
     private User user;
 }

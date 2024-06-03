@@ -1,0 +1,94 @@
+.mainContent .content p, .accordion .acLabels {
+  color: black;
+}
+
+.accordion {
+  padding: 0;
+  justify-content: center;
+  width: 600px;
+  margin: 14vh 10vh;
+}
+
+.title {
+  border-bottom: white 1px solid;
+  text-align: center;
+  margin: 20px 100px;
+}
+
+.val1 {
+  background: #7010ff;
+}
+
+.val2 {
+  background: #66DA26;
+}
+
+.val3 {
+  background: #54D4ff;
+}
+
+.accordion li {
+  list-style: none;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 3px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(111, 125, 255, 0.15);
+}
+
+.accordion li .acLabels {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+.acLabels::before{
+  content: '+';
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+.accordion .content {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 0 10px;
+  line-height: 26px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s, padding 0.4s;
+}
+
+.accordion input[type="radio"]:checked + .acLabels + .content {
+  max-height: 500px;
+  padding: 10px 10px 10px;
+}
+
+
+.accordion input[type="radio"]:checked + .acLabels::before {
+  content: '-';
+}
+
+.content .content-footer {
+  width: 100%;
+  height: 30px;
+}
+
+.btnVerDetalhes {
+  background-color: rgb(250, 225, 0);
+  color: black;
+  border-color: rgba(250, 225, 0, 0.562);
+  border-radius: 4px;
+  position: absolute;
+  right: 10px;
+}

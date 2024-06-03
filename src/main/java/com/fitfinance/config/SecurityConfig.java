@@ -39,7 +39,6 @@ public class SecurityConfig {
                         auth.requestMatchers(WHITE_LIST).permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll()
                                 .requestMatchers("/actuator/**").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/v1/users").hasAuthority("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))

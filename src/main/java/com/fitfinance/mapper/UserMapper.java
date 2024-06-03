@@ -2,7 +2,7 @@ package com.fitfinance.mapper;
 
 import com.fitfinance.annotation.EncodedMapping;
 import com.fitfinance.domain.User;
-import com.fitfinance.request.UserPostRoleSpecificRequest;
+import com.fitfinance.request.UserPostRoleAdminRequest;
 import com.fitfinance.request.UserPostRequest;
 import com.fitfinance.request.UserPutRequest;
 import com.fitfinance.response.UserGetResponse;
@@ -29,7 +29,7 @@ public interface UserMapper {
     @Mapping(target = "password", qualifiedBy = EncodedMapping.class)
     @Mapping(target = "roles", constant = "ADMIN")
     @Mapping(source = "birthdate", target = "birthdate", dateFormat = "yyyy-MM-dd")
-    User toUser(UserPostRoleSpecificRequest userPostRoleSpecificRequest);
+    User toUser(UserPostRoleAdminRequest userPostRoleAdminRequest);
 
     UserPostResponse toUserPostResponse(User user);
 

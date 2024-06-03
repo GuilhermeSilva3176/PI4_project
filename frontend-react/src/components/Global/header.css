@@ -1,0 +1,56 @@
+@import url(../../configs/configurationStyle/style.css);
+
+#headerChart {
+  z-index: 2;
+}
+
+.navbar {
+  background-color: var( --color-primary);
+}
+
+.navbar-logo {
+  width: 20%; 
+  height: 10%; 
+  margin-left: 4vh;
+}
+
+.navbar-logo img {
+  width: 259.67px;
+  max-width: 260px;
+}
+
+#headerChart .navbar-collapse {
+  width: auto;
+}
+
+.navbar-nav {
+  margin-right: 6vh;
+}
+
+.nav-item {
+  margin: 10px 25px 10px 25px;
+}
+
+.nav-item:nth-child(4){
+  border-left: white 1px solid;
+  padding-left: 50px;
+}
+
+#headerChart .nav-link {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 8px;
+  padding: 0px;
+  color: #929292;
+  border-bottom: solid 1px transparent;
+}
+
+#headerChart .nav-link:hover {
+  border-bottom: solid 1px #e4e4e4;
+  color: var(--text-color);
+}
+
+.active {
+  color: var(--text-color) !important;
+}

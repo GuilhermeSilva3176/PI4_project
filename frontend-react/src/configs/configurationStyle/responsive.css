@@ -1,0 +1,30 @@
+@media (max-width: 991.98px) {
+  #header h3 {
+      font-size: 0;
+      padding: 0;
+      margin: 0;
+  }
+  .navbar {
+      background-color: var(--color-primary);
+  }
+}
+
+@media (max-width: 422px) {
+  #header {
+      margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #header .nav-link {
+      margin-left: 15px;
+      margin-right: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-md-6, .col-md-5 {
+      margin-bottom: 20px;
+      margin-top: 40px;
+  }
+}

@@ -1,0 +1,13 @@
+.mainContent {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.verticalLine {
+  border-left: 1px solid #ccc;
+  height: 525px;
+  margin-bottom: 200px;
+  margin-top: 20vh;
+}

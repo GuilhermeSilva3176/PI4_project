@@ -1,0 +1,16 @@
+#row2 {
+  justify-content: right;
+  font-size: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+#row1 {
+  margin-top: 160px;
+}
+
+.titleRow {
+  text-align: center;
+}

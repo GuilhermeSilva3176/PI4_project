@@ -8,13 +8,16 @@ import com.fitfinance.repository.UserRepository;
 import com.fitfinance.request.ChangePasswordRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.util.List;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -55,14 +58,14 @@ public class UserService {
 
     public void delete(Long id, User user) {
         var foundUser = findById(id);
-
-        if (!foundUser.getId().equals(user.getId()) && !user.getRoles().equals("ADMIN")) {
+        if (!foundUser.getId().equals(user.getId()) && !user.getRoles().contains("ADMIN")) {
             throw new SecurityException("User " + user.getId() + " - " + user.getEmail() +
-                    " does not have permission to delete another users");
+                    " does not have permission to delete the user: " + foundUser.getId());
         }
 
         tokenRepository.deleteAllByUserId(foundUser.getId());
         userRepository.delete(foundUser);
+        SecurityContextHolder.clearContext();
     }
 
     private void assertEmailIsUnique(String email, Long userId) {

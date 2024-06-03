@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './hero.css';
 
 function Hero(){
@@ -11,7 +12,9 @@ function Hero(){
           No Fit Finance, estamos comprometidos em ser seu parceiro em todas as etapas do seu percurso
           financeiro.
         </p>
+        <Link to="/register">
           <button className="cadastrarBotao">Abra sua conta</button>
+        </Link>
       </div>
       <div className="img col-md-4">
         <img src="/images/first_home_image.svg" alt="Presentation" className="img-fluid"/>

@@ -1,61 +1,104 @@
 .comprar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    visibility: hidden;
-  }
-  
-  .comprar-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .comprar-content {
-    background-color: white;
-    width: 600px;
-    height: 400px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    position: relative;
-  }
-  
-  .comprar-content.active {
-    opacity: 1;
-  }
-  
-  .fecharAba {
-    color: black;
-    background-color: #f72929;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .fecharAba:hover {
-    background-color: #ff9696;
-  }
-  
-  .comprarTitle {
-    color: black;
-    position: absolute;
-    font-size: 40px;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.comprar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.comprar-content {
+  background-color: white;
+  width: 600px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.comprar-content.active {
+  opacity: 1;
+}
+
+.fecharAba {
+  color: white;
+  background-color: #f72929;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.fecharAba:hover {
+  background-color: #ff9696;
+}
+
+.comprarTitle {
+  color: black;
+  position: absolute;
+  font-size: 40px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.formComprar {
+  position: absolute;
+  right: 17vh;
+  top: 8vh;
+}
+
+.formComprar-group {
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+.formComprar-group label {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.formComprar-group input {
+  width: calc(100% - 20px);
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  right: 9vh;
+}
+
+button[type="button"]:hover {
+  background-color: #45a049;
+}

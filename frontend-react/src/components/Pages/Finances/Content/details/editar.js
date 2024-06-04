@@ -2,9 +2,9 @@ import React from "react";
 import './editar.css';
 
 function Editar({ onClose, show, item, handleEditar }) {
-    const [nome, setNome] = React.useState(item.nome);
-    const [valor, setValor] = React.useState(item.valor);
-    const [tipo, setTipo] = React.useState(item.tipo);
+    const [nome, setNome] = React.useState(item.name);
+    const [valor, setValor] = React.useState(item.value);
+    const [tipo, setTipo] = React.useState(item.type);
 
 
     const handleSubmit = (e) => {

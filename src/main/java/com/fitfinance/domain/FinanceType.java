@@ -1,5 +1,5 @@
 package com.fitfinance.domain;
 
 public enum FinanceType {
-    INCOME, EXPENSE
+    INCOME, EXPENSE, STOCK, FIXED_INCOME, FII
 }

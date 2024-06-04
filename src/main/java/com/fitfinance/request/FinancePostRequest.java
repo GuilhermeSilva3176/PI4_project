@@ -33,5 +33,6 @@ public class FinancePostRequest {
     @NotBlank(message = "The field 'endDate' is required")
     private LocalDate endDate;
     @Schema(description = "Finance's user", example = "User")
+    @JsonIgnore
     private UserPostRequest user;
 }

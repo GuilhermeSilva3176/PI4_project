@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './login.css';
 import MinimalHeader from "../../Global/minimalHeader";
 import {Link, useNavigate} from "react-router-dom";
-import {Button, Form} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import axios from "axios";
 import InputComponent from "../Register/components/InputComponent";
 
@@ -48,8 +48,8 @@ function Login(){
 
           <Form onSubmit={handleSubmit}>
               <div className="textbox">
-                <InputComponent label="Email" inputType="email" value={email}
-                                onChange={(event) => setEmail(event.target.value)}/>
+                  <InputComponent label="Email" inputType="tel" value={email}
+                                  onChange={(event) => setEmail(event.target.value)}/>
               </div>
 
               <div className="textbox">

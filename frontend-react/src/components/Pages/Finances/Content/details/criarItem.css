@@ -10,7 +10,7 @@
     align-items: center;
     z-index: 9999;
     opacity: 0;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     visibility: hidden;
 }
 
@@ -54,20 +54,22 @@
     background-color: #ff9696;
 }
 
-.formCriar  {
+/* Estilo para o formulário de criação */
+.formCriar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+}
+
+.criarTitle {
+    color: black;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .formCriar label {
     margin-bottom: 10px;
     color: black;
-}
-
-.criarTitle {
-    color: black;
+    align-self: flex-start;
 }
 
 .formCriar input, .formCriar select {
@@ -81,6 +83,7 @@
 
 .formCriar .optionsCriar {
     color: black;
+    margin-top: 10px;
 }
 
 button[type="submit"] {

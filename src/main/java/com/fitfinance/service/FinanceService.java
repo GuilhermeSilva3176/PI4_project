@@ -17,7 +17,6 @@ import java.util.List;
 @Log4j2
 public class FinanceService {
     private final FinanceRepository financeRepository;
-    private final UserRepository userRepository;
 
     public List<Finance> getAllFinances() {
         return financeRepository.findAll();

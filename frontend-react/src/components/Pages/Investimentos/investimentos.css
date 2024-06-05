@@ -5,9 +5,22 @@
   justify-content: space-around;
 }
 
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .verticalLine {
   border-left: 1px solid #ccc;
   height: 525px;
   margin-bottom: 200px;
   margin-top: 20vh;
+}
+
+@media (max-width: 768px) {
+  .verticalLine {
+    display: none;
+  }
 }

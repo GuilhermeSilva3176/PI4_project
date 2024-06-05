@@ -23,7 +23,7 @@ const Finances = () => {
         }).catch((error) => {
             alert('Erro ao buscar finanças ' + error)
         })
-    }, []);
+    });
 
   const handleVerDetalhesClick = () => {
     setShowDetalhes(true);

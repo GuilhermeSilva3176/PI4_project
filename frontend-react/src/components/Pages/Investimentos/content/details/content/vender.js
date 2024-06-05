@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './vender.css';
 import PropTypes from "prop-types";
 import axios from "axios";
+import {USER_TOKEN_REF} from "../../../../../../constants/constants";
 
 function Vender({ onClose, investmentList }) {
   const [productName, setProductName] = useState('');
@@ -11,9 +12,9 @@ function Vender({ onClose, investmentList }) {
     event.preventDefault();
     console.log('Vendendo...');
 
-    axios.delete('api/v1/finances/' + investmentId, {
+    axios.delete('api/v1/investments/' + investmentId, {
         headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+            Authorization: `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
         }
         }).then((response) => {
         if (response.status === 200) {

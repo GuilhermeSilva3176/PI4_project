@@ -26,7 +26,7 @@ public class FinanceUtils {
     public Finance createValidFinanceWithUser(User user) {
         return Finance.builder()
                 .name("Some finance " + System.currentTimeMillis())
-                .type(FinanceType.INCOME)
+                .type(FinanceType.EXPENSE)
                 .value(100)
                 .description("Some description " + System.currentTimeMillis())
                 .startDate(LocalDate.now())
@@ -38,7 +38,7 @@ public class FinanceUtils {
     public FinancePostRequest createValidFinancePostRequest() {
         return FinancePostRequest.builder()
                 .name("Some finance " + System.currentTimeMillis())
-                .type(FinanceType.INCOME)
+                .type(FinanceType.EXPENSE)
                 .value(100)
                 .description("Some description " + System.currentTimeMillis())
                 .startDate(LocalDate.now())

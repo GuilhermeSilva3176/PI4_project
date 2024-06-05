@@ -7,6 +7,7 @@ import Investimentos from './components/Pages/Investimentos/investimentos';
 import Login from './components/Pages/Login/login';
 import './App.css';
 import Register from "./components/Pages/Register/register";
+import PrivateWrapper from "./routes/PrivateWrapper";
 
 function App() {
   return (
@@ -15,8 +16,12 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/financas" element={<Finances/>}/>
-          <Route path="/investimentos" element={<Investimentos/>}/>
+          <Route element={<PrivateWrapper />}>
+            <Route path="/financas" element={<Finances/>}/>
+          </Route>
+          <Route element={<PrivateWrapper />}>
+            <Route path="/investimentos" element={<Investimentos/>}/>
+          </Route>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
         </Routes>

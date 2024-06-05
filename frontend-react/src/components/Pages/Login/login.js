@@ -33,7 +33,6 @@ function Login(){
             .then(() => {
                 alert('Usuário logado com sucesso!')
                 goToHome()
-
             })
             .catch(error => {
                 alert('Erro ao logar usuário: ' + error)
@@ -59,7 +58,7 @@ function Login(){
               </div>
 
               <div className="subscribe">
-                  <p>Not signed yet?&nbsp;<Link to="/register">Clique aqui</Link></p>
+                  <p>Não tem cadastro?&nbsp;<Link to="/register">Clique aqui</Link></p>
               </div>
               <button type="submit" className="btn-login">Login</button>
             </Form>

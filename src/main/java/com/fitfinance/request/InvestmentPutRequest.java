@@ -3,6 +3,7 @@ package com.fitfinance.request;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fitfinance.domain.FinanceType;
+import com.fitfinance.domain.InvestmentType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
@@ -27,8 +28,8 @@ public class InvestmentPutRequest {
     @Schema(description = "Finance's value", example = "150.00")
     private Double price;
     @NotBlank(message = "The field 'type' is required")
-    @Schema(description = "Finance's type", example = "INCOME")
-    private FinanceType type;
+    @Schema(description = "Investment's type", example = "STOCK")
+    private InvestmentType type;
     @NotBlank(message = "The field 'quantity' is required")
     @Schema(description = "Investment's quantity", example = "1")
     private Integer quantity;

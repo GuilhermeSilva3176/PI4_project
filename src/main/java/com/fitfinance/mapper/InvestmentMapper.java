@@ -1,13 +1,8 @@
 package com.fitfinance.mapper;
 
-import com.fitfinance.domain.Finance;
 import com.fitfinance.domain.Investment;
-import com.fitfinance.request.FinancePostRequest;
-import com.fitfinance.request.FinancePutRequest;
 import com.fitfinance.request.InvestmentPostRequest;
 import com.fitfinance.request.InvestmentPutRequest;
-import com.fitfinance.response.FinanceGetResponse;
-import com.fitfinance.response.FinancePostResponse;
 import com.fitfinance.response.InvestmentGetResponse;
 import com.fitfinance.response.InvestmentPostResponse;
 import org.mapstruct.Mapper;
@@ -24,9 +19,9 @@ public interface InvestmentMapper {
     @Mapping(source = "id", target = "id")
     Investment toInvestment(InvestmentPutRequest request);
 
-    InvestmentPostResponse toInvestmentPostResponse(Investment finance);
+    InvestmentPostResponse toInvestmentPostResponse(Investment investment);
 
-    InvestmentGetResponse toInvestmentGetResponse(Investment finance);
+    InvestmentGetResponse toInvestmentGetResponse(Investment investment);
 
-    List<InvestmentGetResponse> toInvestmentGetResponses(List<Investment> finances);
+    List<InvestmentGetResponse> toInvestmentGetResponses(List<Investment> investment);
 }

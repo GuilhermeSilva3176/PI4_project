@@ -1,17 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './acordion.css';
 import PropTypes from "prop-types";
 
 function Accordion({handleVerDetalhesClick, investmentList}) {
     const [previousRadioButtonId, setPreviousRadioButtonId] = useState('');
 
-    const getInvestmentsByType = ({investmentType}) => {
-        return investmentList?.size > 0 ? investmentList?.filter((investment) => investment.type === investmentType) : []
-    }
+    const [stocks, setStocks] = useState([]);
+    const [fiis, setFiis] = useState([]);
+    const [fixedIncome, setFixedIncome] = useState([]);
 
-    const stocks = getInvestmentsByType({investmentType: "STOCK"})
-    const fiis = getInvestmentsByType({investmentType: "FII"})
-    const fixedIncome = getInvestmentsByType({investmentType: "FIXED_INCOME"})
+    useEffect(() => {
+        setStocks(investmentList.filter(investment => investment.type === "STOCK"))
+        setFiis(investmentList.filter(investment => investment.type === "FII"))
+        setFixedIncome(investmentList.filter(investment => investment.type === "FIXED_INCOME"))
+    }, [investmentList]);
+
+
 
     const handleChange = (event) => {
         if (previousRadioButtonId === event.target.id) {
@@ -42,7 +46,7 @@ function Accordion({handleVerDetalhesClick, investmentList}) {
                             {stocks.map((stock) => (
                                 <tr key={stock.id}>
                                     <td>{stock.name}</td>
-                                    <td>{stock.value}</td>
+                                    <td>{stock.price}</td>
                                     <td>{stock.start_date}</td>
                                 </tr>
                             ))}
@@ -71,7 +75,7 @@ function Accordion({handleVerDetalhesClick, investmentList}) {
                             {fiis.map((fii) => (
                                 <tr key={fii.id}>
                                     <td>{fii.name}</td>
-                                    <td>{fii.value}</td>
+                                    <td>{fii.price}</td>
                                     <td>{fii.start_date}</td>
                                 </tr>
                             ))}
@@ -101,7 +105,7 @@ function Accordion({handleVerDetalhesClick, investmentList}) {
                                 <tr key={fixedIncomeUnit.id}>
                                     <td>{fixedIncomeUnit.name}</td>
                                     {/*Quantity will be added*/}
-                                    <td>{fixedIncomeUnit.value}</td>
+                                    <td>{fixedIncomeUnit.price}</td>
                                     <td>{fixedIncomeUnit.start_date}</td>
                                 </tr>
                             ))}
@@ -116,9 +120,10 @@ function Accordion({handleVerDetalhesClick, investmentList}) {
         </ul>
     );
 }
-
 Accordion.propTypes = {
+    handleVerDetalhesClick: PropTypes.func.isRequired,
     investmentList: PropTypes.array.isRequired
 }
+
 
 export default Accordion;

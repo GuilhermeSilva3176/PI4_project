@@ -5,20 +5,21 @@ import PropTypes from "prop-types";
 
 const InvestmentChart = ({investmentList}) => {
     const [hiddenChart, setHiddenChart] = useState(false)
-    const getInvestmentValueSumByType = ({investmentType}) => {
-        return investmentList?.size > 0 ? investmentList?.filter((investment) => investment.type === investmentType)
-            .map((investment) => investment.value).reduce((a, b) => a + b, 0) : 0
-    }
 
-    const stocks = getInvestmentValueSumByType({investmentType: "STOCK"})
-    const fiis = getInvestmentValueSumByType({investmentType: "FII"})
-    const fixedIncome = getInvestmentValueSumByType({investmentType: "FIXED_INCOME"})
+    const [stocks, setStocks] = useState(0);
+    const [fiis, setFiis] = useState(0);
+    const [fixedIncome, setFixedIncome] = useState(0);
 
     useEffect(() => {
+        console.log('ABC' + investmentList.filter(investment => investment.type === "STOCK").reduce((acc, investment) => acc + investment.value, 0))
+        setStocks(investmentList.filter(investment => investment.type === "STOCK").reduce((acc, investment) => acc + investment.value, 0))
+        setFiis(investmentList.filter(investment => investment.type === "FII").reduce((acc, investment) => acc + investment.value, 0))
+        setFixedIncome(investmentList.filter(investment => investment.type === "FIXED_INCOME").reduce((acc, investment) => acc + investment.value, 0))
+
         if (stocks + fiis + fixedIncome === 0) {
             setHiddenChart(true)
         }
-    }, [stocks, fiis, fixedIncome]);
+    }, [stocks, fiis, fixedIncome, investmentList]);
 
     const state = {
         series: [stocks, fiis, fixedIncome],

@@ -43,7 +43,7 @@
 .textbox input, .btn-login {
   border-radius: 8px;
   border: none;
-  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.4);
 }
 
 .subscribe {
@@ -51,8 +51,12 @@
   color: white;
 }
 
-.subscribe a:visited {
+.subscribe a:visited, a {
   color: rgb(214, 1, 214)
+}
+
+.subscribe a:visited:hover, a:hover {
+  color: rgb(172, 0, 172)
 }
 
 .btn-login {

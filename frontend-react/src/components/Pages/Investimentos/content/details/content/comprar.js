@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './comprar.css';
 import axios from "axios";
+import {USER_TOKEN_REF} from "../../../../../../constants/constants";
 
 function Comprar({onClose}) {
     const [productName, setProductName] = useState('');
@@ -23,7 +24,7 @@ function Comprar({onClose}) {
 
         axios.post('api/v1/investments', investmentPostRequest, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
             }
         }).then((response) => {
             if (response.status === 201) {

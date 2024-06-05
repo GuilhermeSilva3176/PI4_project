@@ -36,9 +36,10 @@ public class InvestmentController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<Investment> findById(@PathVariable Long id) {
+    public ResponseEntity<InvestmentGetResponse> findById(@PathVariable Long id) {
         var investmentFound = investmentService.findById(id);
-        return ResponseEntity.ok(investmentFound);
+        var investmentResponse = mapper.toInvestmentGetResponse(investmentFound);
+        return ResponseEntity.ok(investmentResponse);
     }
 
     @GetMapping("/by-user-id")

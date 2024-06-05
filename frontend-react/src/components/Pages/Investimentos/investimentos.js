@@ -4,25 +4,23 @@ import Accordion from './content/acordion/acordion';
 import Detalhes from './content/details/detalhesInvestimentos';
 import './investimentos.css';
 import axios from "axios";
+import {USER_TOKEN_REF} from "../../../constants/constants";
 
 function Investimentos() {
   const [showDetalhes, setShowDetalhes] = useState(false);
   const [investments, setInvestments] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/v1/finances/by-user-id', {
+        axios.get('http://localhost:8080/api/v1/investments/by-user-id', {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
             }
         }).then((response) => {
             if (response.status === 200) {
                 setInvestments(response.data)
             }
-        }).then(() => {
-            setInvestments(investments?.filter((finance) => finance.type === "STOCK" || finance.type === "FIXED_INCOME"
-                || finance.type === "FII"))
         }).catch((error) => {
-            // alert('Erro ao buscar investimentos ' + error)
+            alert('Erro ao buscar investimentos ' + error)
         })
     });
 
@@ -39,7 +37,7 @@ function Investimentos() {
       <Accordion handleVerDetalhesClick={handleVerDetalhesClick} investmentList={investments} />
       <hr className='verticalLine'></hr>
       <InvestmentChart investmentList={investments} />
-      <Detalhes onClose={handleFecharDetalhes} show={showDetalhes} />
+      <Detalhes onClose={handleFecharDetalhes} investmentsList={investments} show={showDetalhes} />
     </div>
   );
 }

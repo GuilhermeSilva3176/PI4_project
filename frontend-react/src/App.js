@@ -8,6 +8,7 @@ import Login from './components/Pages/Login/login';
 import './App.css';
 import Register from "./components/Pages/Register/register";
 import PrivateWrapper from "./routes/PrivateWrapper";
+import HomeLogged from "./components/Pages/HomeLogged/HomeLogged";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route element={<PrivateWrapper />}>
+            <Route path="/home" element={<HomeLogged/>}/>
+          </Route>
           <Route element={<PrivateWrapper />}>
             <Route path="/financas" element={<Finances/>}/>
           </Route>

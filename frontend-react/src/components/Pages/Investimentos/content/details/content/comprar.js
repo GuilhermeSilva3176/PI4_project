@@ -18,11 +18,11 @@ function Comprar({onClose}) {
             quantity: quantity,
             price: unitPrice,
             type: investmentType,
-            start_date: Date.now(),
+            start_date: new Date().toISOString().split('T')[0],
             end_date: null,
         }
 
-        axios.post('api/v1/investments', investmentPostRequest, {
+        axios.post('http://localhost:8080/api/v1/investments', investmentPostRequest, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
             }
@@ -41,7 +41,7 @@ function Comprar({onClose}) {
             <div className="comprar-content active" onClick={(e) => e.stopPropagation()}>
                 <button onClick={onClose} className="fecharAba"></button>
                 <h2 className="comprarTitle">Comprar</h2>
-                <form className="formComprar">
+                <form className="formComprar" onSubmit={handleSubmit}>
                     <div className="formComprar-group">
                         <label htmlFor="produto">Produto:</label>
                         <input type="text" id="produto" value={productName} onChange={(event) =>
@@ -58,16 +58,16 @@ function Comprar({onClose}) {
                             setUnitPrice(parseFloat(event.target.value))}/>
                     </div>
                     <div className="formComprar-group">
-                        <label htmlFor="tipoInvestimento">Tipo:</label><br/>
-                        <select value={investmentType} id="tipoInvestimento"
+                        <label htmlFor="tipoInvestimento">Tipo:</label>
+                        <select value={investmentType} id="tipoInvestimento" className="form-select form-select-sm"
                                 onChange={(event) => setInvestmentType(event.target.value)}>
                             <option value="" disabled>Selecione uma categoria</option>
                             <option value="STOCK">Ação</option>
-                            <option value="FIIS">FIIs</option>
+                            <option value="FII">FIIs</option>
                             <option value="FIXED_INCOME">Renda Fixa</option>
                         </select>
                     </div>
-                    <button type="button">Comprar</button>
+                    <button type="submit">Comprar</button>
                 </form>
             </div>
         </div>

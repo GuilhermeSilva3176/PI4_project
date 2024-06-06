@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './editar.css';
 import PropTypes from "prop-types";
 
@@ -6,6 +6,12 @@ function Editar({ onClose, show, item, handleEditar }) {
     const [nome, setNome] = React.useState(item.name);
     const [valor, setValor] = React.useState(item.value);
     const [tipo, setTipo] = React.useState(item.type);
+
+    useEffect(() => {
+        setNome(item.name);
+        setValor(item.value);
+        setTipo(item.type);
+    }, [item]);
 
 
     const handleSubmit = (e) => {

@@ -51,7 +51,6 @@ function Login(){
                   <InputComponent label="Email" inputType="tel" value={email}
                                   onChange={(event) => setEmail(event.target.value)}/>
               </div>
-
               <div className="textbox">
                 <InputComponent inputType="password" label="Senha" value={password}
                 onChange={(event) => setPassword(event.target.value)}/>

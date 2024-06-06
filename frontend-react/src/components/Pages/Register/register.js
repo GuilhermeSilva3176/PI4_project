@@ -42,7 +42,6 @@ const Registrar = () => {
             .then(() => {
                 alert('Usuário registrado com sucesso!')
                 goToLogin()
-
             })
             .catch(error => {
                 alert('Erro ao registrar usuário: ' + error)

@@ -11,15 +11,18 @@ const InvestmentChart = ({investmentList}) => {
     const [fixedIncome, setFixedIncome] = useState(0);
 
     useEffect(() => {
-        console.log('ABC' + investmentList.filter(investment => investment.type === "STOCK").reduce((acc, investment) => acc + investment.value, 0))
-        setStocks(investmentList.filter(investment => investment.type === "STOCK").reduce((acc, investment) => acc + investment.value, 0))
-        setFiis(investmentList.filter(investment => investment.type === "FII").reduce((acc, investment) => acc + investment.value, 0))
-        setFixedIncome(investmentList.filter(investment => investment.type === "FIXED_INCOME").reduce((acc, investment) => acc + investment.value, 0))
-
+        setStocks(investmentList.filter(investment => investment.type === "STOCK")
+            .reduce((acc, investment) => acc + (investment.price * investment.quantity), 0))
+        setFiis(investmentList.filter(investment => investment.type === "FII")
+            .reduce((acc, investment) => acc + (investment.price * investment.quantity), 0))
+        setFixedIncome(investmentList.filter(investment => investment.type === "FIXED_INCOME")
+            .reduce((acc, investment) => acc + (investment.price * investment.quantity), 0))
         if (stocks + fiis + fixedIncome === 0) {
             setHiddenChart(true)
+        } else {
+            setHiddenChart(false)
         }
-    }, [stocks, fiis, fixedIncome, investmentList]);
+    }, [investmentList]);
 
     const state = {
         series: [stocks, fiis, fixedIncome],
@@ -28,10 +31,16 @@ const InvestmentChart = ({investmentList}) => {
 
             chart: {
                 foreColor: '#ffffff',
-                type: 'pie'
-
+                type: 'pie',
+                fontSize: '18px'
             },
             labels: ['Ações', 'FIIS', 'Renda Fixa'],
+            dataLabels: {
+                enabled: true,
+                style: {
+                    fontSize: '18px'
+                }
+            },
             legend: {
                 position: 'bottom',
                 horizontalAlign: 'left',

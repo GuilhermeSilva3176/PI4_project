@@ -40,5 +40,5 @@ function CriarItem({ onClose, show, handleCriar }) {
     </div>
   );
 }
-
+ 
 export default CriarItem;

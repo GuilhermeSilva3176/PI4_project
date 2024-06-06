@@ -60,7 +60,10 @@
     margin: 0 auto;
 }
 
-
 .btn-register:hover {
     background-color: #003274 !important;
+}
+
+.inputRenda{
+   margin-bottom: -15px;
 }

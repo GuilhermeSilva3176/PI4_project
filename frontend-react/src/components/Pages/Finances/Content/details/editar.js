@@ -41,7 +41,7 @@ function Editar({ onClose, show, item, handleEditar }) {
                             <option className="optionsEditar" value="INCOME">Renda</option>
                         </select>
                     </label>
-                    <button type="submit">Salvar</button>
+                    <button className="btnSalvarEdicao" type="submit">Salvar</button>
                 </form>
             </div>
         </div>
@@ -53,5 +53,5 @@ Editar.propTypes = {
     item: PropTypes.object.isRequired,
     handleEditar: PropTypes.func.isRequired
 }
-
+ 
 export default Editar;

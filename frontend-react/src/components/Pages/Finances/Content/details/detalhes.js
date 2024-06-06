@@ -146,5 +146,5 @@ function Detalhes({onClose, show, financeList}) {
         </div>
     );
 }
-
+ 
 export default Detalhes;

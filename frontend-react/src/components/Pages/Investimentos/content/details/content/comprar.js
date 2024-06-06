@@ -67,11 +67,11 @@ function Comprar({onClose}) {
                             <option value="FIXED_INCOME">Renda Fixa</option>
                         </select>
                     </div>
-                    <button type="submit">Comprar</button>
+                    <button className="btnComprar" type="submit">Comprar</button>
                 </form>
             </div>
         </div>
     );
 }
-
+ 
 export default Comprar;

@@ -55,5 +55,5 @@ Detalhes.propTypes = {
     show: PropTypes.bool.isRequired,
     investmentsList: PropTypes.array.isRequired,
 };
-
+ 
 export default Detalhes;

@@ -22,5 +22,5 @@ function Hero(){
     </section>
   );
 }
-
+ 
 export default Hero;

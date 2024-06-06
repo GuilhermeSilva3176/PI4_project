@@ -28,5 +28,5 @@ Container.propTypes = {
     handleSeeDetailsClick: PropTypes.func.isRequired,
     financeList: PropTypes.array.isRequired
 }
-
+ 
 export default Container;

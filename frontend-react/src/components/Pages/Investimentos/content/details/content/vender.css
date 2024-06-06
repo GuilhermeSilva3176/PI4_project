@@ -1,4 +1,4 @@
-.comprar-overlay {
+.vender-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,15 +14,15 @@
   visibility: hidden;
 }
 
-.comprar-overlay.active {
+.vender-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-.comprar-content {
+.vender-content {
   background-color: white;
   width: 600px;
-  height: 500px;
+  height: 450px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -31,29 +31,27 @@
   position: relative;
 }
 
-.comprar-content.active {
+.vender-content.active {
   opacity: 1;
 }
 
 .fecharAba {
-  color: white;
+  color: black;
   background-color: #f72929;
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 10px;
+  padding: 10px 10px;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
-  line-height: 1;
 }
 
 .fecharAba:hover {
   background-color: #ff9696;
 }
 
-.comprarTitle {
+.venderTitle {
   color: black;
   position: absolute;
   font-size: 40px;
@@ -62,24 +60,25 @@
   transform: translateX(-50%);
 }
 
-.formComprar {
+.formVender {
   position: absolute;
   right: 17vh;
   top: 8vh;
 }
 
-.formComprar-group {
+.formVendas-group {
   margin-bottom: 20px;
   width: 250px;
 }
 
-.formComprar-group label {
+.formVendas-group label {
   color: #000000;
   font-size: 16px;
   margin-bottom: 5px;
 }
 
-.formComprar-group input, select {
+.formVendas-group input,
+select {
   width: calc(100% - 20px);
   padding: 5px;
   font-size: 16px;
@@ -87,9 +86,9 @@
   border-radius: 5px;
 }
 
-/*
+/* */
 
-button[type="submit"] {
+.btnVender{
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -101,11 +100,7 @@ button[type="submit"] {
   right: 9vh;
 }
 
-button[type="submit"]:hover {
+.btnVender:hover {
   background-color: #45a049;
 }
 
-*/
-select option {
-  color: black;
-}

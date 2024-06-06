@@ -80,7 +80,7 @@ const Registrar = () => {
                             <div className="textlabel">
 
                                 <Row className="row-margin">
-                                    <InputComponent label="Nome" inputType="text" value={name}
+                                    <InputComponent label="Nomeee" inputType="text" value={name}
                                         onChange={(event) => setName(event.target.value)} />
 
                                     <InputComponent label="CPF" inputType="text" value={cpf}
@@ -103,7 +103,7 @@ const Registrar = () => {
 
                             </div>
 
-                            <div>
+                            <div className="inputRenda">
                                 <Row className="row-margin">
                                     <p>Renda Mensal</p>
                                     <div className="input-group mb-3">

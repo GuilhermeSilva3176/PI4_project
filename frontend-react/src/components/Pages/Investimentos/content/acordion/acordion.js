@@ -125,5 +125,4 @@ Accordion.propTypes = {
     investmentList: PropTypes.array.isRequired
 }
 
-
 export default Accordion;

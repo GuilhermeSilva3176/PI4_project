@@ -103,7 +103,7 @@ function Vender({onClose, investmentList}) {
                                    onChange={(e) => setUnitPrice(parseFloat(e.target.value))} required/>
                         </label>
                     </div>
-                    <button type="submit">Vender</button>
+                    <button className="btnVender" type="submit">Vender</button>
                 </form>
             </div>
         </div>
@@ -114,5 +114,5 @@ Vender.propTypes = {
     investmentList: PropTypes.array.isRequired,
     onClose: PropTypes.func.isRequired
 }
-
+ 
 export default Vender;

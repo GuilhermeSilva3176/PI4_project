@@ -1,17 +1,17 @@
-
-
 .textboxCad input {
     border-radius: 10px;
     border: none;
-}
-
-input {
     color: #000000;
     padding: 5px;
-    font-size: 16px;
-}
-
-input[type="date"],[type="number"] {
     width: 100%;
+    font-size: 16px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-top: -10px;
 }
 
+@media (max-width: 768px) {
+    .textboxCad input {
+        margin-bottom: 10px;
+    }
+}

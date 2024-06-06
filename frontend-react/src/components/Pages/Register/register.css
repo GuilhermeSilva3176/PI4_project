@@ -35,29 +35,33 @@
     display: flex;
 }
 
+@media (max-width: 768px) {
+    .floatregister {
+        width: 100%;
+        height: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .btn-register {
+        margin-bottom: 20px;
+    }
+}
+
 .textboxCad input, .btn-register{
     border-radius: 5px;
     border: none;
 }
 
-.textlabel input{
-    border: none;
-    height: 40px;
-    width: 270px;
-    box-sizing: border-box;
-    margin-top: -10px;
-    border-radius: 5px;
-}
-
 .btn-register{
-    border-radius: 5px;
     background-color: rgb(29, 86, 198) !important;
     font-size: 20px;
-    width: 565px;
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
 }
 
 .btn-register:hover {
@@ -65,5 +69,5 @@
 }
 
 .inputRenda{
-   margin-bottom: -15px;
+    margin-bottom: -15px;
 }

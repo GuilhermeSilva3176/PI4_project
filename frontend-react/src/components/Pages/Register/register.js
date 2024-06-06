@@ -77,30 +77,28 @@ const Registrar = () => {
                         <h1 className="titleRegister">Registrar</h1>
                         <Form onSubmit={handleSubmit}>
 
-                            <div className="textlabel">
-
+                            <div>
                                 <Row className="row-margin">
-                                    <InputComponent label="Nomeee" inputType="text" value={name}
-                                        onChange={(event) => setName(event.target.value)} />
+                                    <InputComponent label="Nome" inputType="text" value={name}
+                                                    onChange={(event) => setName(event.target.value)} />
 
                                     <InputComponent label="CPF" inputType="text" value={cpf}
-                                        onChange={handleCpf} />
+                                                    onChange={handleCpf} />
                                 </Row>
                                 <Row className="row-margin">
                                     <InputComponent label="Email" inputType="email" value={email}
-                                        onChange={(event) => setEmail(event.target.value)} />
+                                                    onChange={(event) => setEmail(event.target.value)} />
 
                                     <InputComponent label="Senha" inputType="password" value={password}
-                                        onChange={(event) => setPassword(event.target.value)} />
+                                                    onChange={(event) => setPassword(event.target.value)} />
                                 </Row>
                                 <Row className="row-margin">
                                     <InputComponent label="Nascimento" inputType="date" value={birthdate}
-                                        onChange={(event) => setBirthdate(event.target.value)} />
+                                                    onChange={(event) => setBirthdate(event.target.value)} />
 
                                     <InputComponent label="Telefone" inputType="tel" value={phone}
-                                        onChange={handlePhone} />
+                                                    onChange={handlePhone} />
                                 </Row>
-
                             </div>
 
                             <div className="inputRenda">
@@ -108,7 +106,8 @@ const Registrar = () => {
                                     <p>Renda Mensal</p>
                                     <div className="input-group mb-3">
                                         <span className="input-group-text">R$</span>
-                                        <input type="text" className="form-control" />
+                                        <input type="text" className="form-control" value={income}
+                                               onChange={(e) => setIncome(e.target.value)}/>
                                         <span className="input-group-text">.00</span>
                                     </div>
                                 </Row>

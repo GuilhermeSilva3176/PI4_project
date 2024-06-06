@@ -34,7 +34,7 @@ function CriarItem({ onClose, show, handleCriar }) {
               <option className="optionsCriar" value="INCOME">Renda</option>
             </select>
           </label>
-          <button type="submit">Criar</button>
+          <button type="submit" className="createItemBtn">Criar</button>
         </form>
       </div>
     </div>

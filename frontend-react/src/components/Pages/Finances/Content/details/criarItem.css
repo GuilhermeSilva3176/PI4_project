@@ -86,7 +86,7 @@
     margin-top: 10px;
 }
 
-button[type="submit"] {
+.createItemBtn {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -96,6 +96,6 @@ button[type="submit"] {
     margin-top: 10px;
 }
 
-button[type="submit"]:hover {
+.createItemBtn:hover {
     background-color: #45a049;
 }

@@ -66,8 +66,7 @@ function Header() {
             aria-controls="navbarNav"
             aria-expanded={!isCollapsed}
             aria-label="Toggle navigation"
-            onClick={() => setIsCollapsed(!isCollapsed)}
-          >
+            onClick={() => setIsCollapsed(!isCollapsed)}>
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className={`collapse navbar-collapse ${isCollapsed ? '' : 'show'}`} id="navbarNav">

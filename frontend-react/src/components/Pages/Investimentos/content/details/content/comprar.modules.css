@@ -87,6 +87,8 @@
   border-radius: 5px;
 }
 
+/*
+
 button[type="submit"] {
   background-color: #4CAF50;
   color: white;
@@ -103,6 +105,7 @@ button[type="submit"]:hover {
   background-color: #45a049;
 }
 
+*/
 select option {
   color: black;
 }

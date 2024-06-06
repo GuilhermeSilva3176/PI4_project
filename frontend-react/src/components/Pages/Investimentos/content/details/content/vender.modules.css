@@ -1,4 +1,4 @@
-.editarFinancas-overlay {
+.vender-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,33 +12,30 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     visibility: hidden;
-}
-
-.editarFinancas-overlay.active {
+  }
+  
+  .vender-overlay.active {
     opacity: 1;
     visibility: visible;
-}
-
-.editarFinancas-content {
+  }
+  
+  .vender-content {
     background-color: white;
-    width: 50%;
-    max-width: 400px;
+    width: 600px;
+    height: 450px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.3s ease;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.editarFinancas-content.active {
+  }
+  
+  .vender-content.active {
     opacity: 1;
-}
-
-.fecharAbaFinancas {
+  }
+  
+  .fecharAba {
     color: black;
     background-color: #f72929;
     cursor: pointer;
@@ -48,57 +45,62 @@
     padding: 10px 10px;
     border: none;
     border-radius: 4px;
-}
-
-.fecharAbaFinancas:hover {
+  }
+  
+  .fecharAba:hover {
     background-color: #ff9696;
-}
+  }
 
-/* Estilo para o formulário de edição */
-.formEditar  {
-    display: flex;
-    flex-direction: column;
-}
-
-.editValues, .valuesChange {
-    margin-bottom: 10px;
+  .venderTitle {
     color: black;
-}
+    position: absolute;
+    font-size: 40px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-.editValues {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+  .formVender {
+    position: absolute;
+    right: 17vh;
+    top: 8vh;
+  }
 
-.valueNameTitle {
-    color: black;
-}
-
-.valuesChange {
-    padding: 8px;
-    border-radius: 4px;
+  .formVendas-group {
+    margin-bottom: 20px;
+    width: 250px;
+  }
+  
+  .formVendas-group label {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .formVendas-group input, select {
+    width: calc(100% - 20px);
+    padding: 5px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    margin-top: 5px;
-    width: 100%;
-}
+    border-radius: 5px;
+  }
+  
+  /*
 
-.formEditar .optionsEditar{
-    color: black;
-}
-
-
-button[type="submit"] {
+  button[type="select"] {
     background-color: #4CAF50;
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    padding: 10px 20px;
     cursor: pointer;
-    margin-top: 10px;
-}
-
-button[type="submit"]:hover {
+    font-size: 16px;
+    position: absolute;
+    right: 9vh;
+  }
+  
+  button[type="select"]:hover {
     background-color: #45a049;
-}
+  }
+
+  */ 

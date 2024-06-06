@@ -6,12 +6,12 @@
 }
 
 .navbar {
-  background-color: var( --color-primary);
+  background-color: var(--color-primary);
 }
 
 .navbar-logo {
-  width: 20%; 
-  height: 10%; 
+  width: 20%;
+  height: 10%;
   margin-left: 4vh;
 }
 
@@ -26,29 +26,45 @@ li a {
 
 #headerChart .navbar-collapse {
   width: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+#headerChart .navbar-collapse.show {
+  max-height: 360px;
+}
+
+@media (min-width: 993px) {
+  #headerChart .navbar-collapse {
+    max-height: none;
+    display: flex !important;
+  }
 }
 
 .navbar-nav {
-  margin-right: 6vh;
+  margin-right: var(--navbar-nav-margin, 6vh);
 }
 
 .nav-item {
   margin: 10px 25px 10px 25px;
 }
 
-.nav-item:nth-child(4){
-  border-left: white 1px solid;
-  padding-left: 50px;
+.nav-line {
+  border-left: 1px solid white;
+  margin-top: 13px;
+  height: 50px;
 }
 
 #headerChart .nav-link {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 16px;
-  margin: 8px;
-  padding: 0;
+  padding: 8px;
   color: #929292;
   border-bottom: solid 1px transparent;
+  transition: border-bottom 0.3s, margin 0.6s ease;
+  margin: 8px var(--nav-link-margin, 0);
 }
 
 #headerChart .nav-link:hover {
@@ -58,4 +74,22 @@ li a {
 
 .active {
   color: var(--text-color) !important;
+}
+
+.navbar-collapse.collapsing .nav-line,
+.navbar-collapse.collapse.show .nav-line {
+  display: none;
+}
+
+.navbar-toggler {
+  margin-right: 30px;
+  transition: transform 0.5s ease;
+}
+
+.navbar-toggler.collapsed {
+  transform: rotate(0deg);
+}
+
+.navbar-toggler.expanded {
+  transform: rotate(180deg);
 }

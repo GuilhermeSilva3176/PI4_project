@@ -28,3 +28,49 @@
       margin-top: 40px;
   }
 }
+
+
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    text-align: center;
+    --navbar-nav-margin: 0;
+  }
+  
+  #headerChart .nav-link {
+    --nav-link-margin: 360px;
+  }
+}
+
+@media (max-width: 891.98px) {
+  .navbar-nav {
+    text-align: center;
+    --navbar-nav-margin: 0;
+  }
+  
+  #headerChart .nav-link {
+    --nav-link-margin: 270px;
+  }
+}
+
+@media (max-width: 701.98px) {
+  .navbar-nav {
+    text-align: center;
+    --navbar-nav-margin: 0;
+  }
+  
+  #headerChart .nav-link {
+    --nav-link-margin: 210px;
+  }
+}
+
+@media (max-width: 621.98px) {
+  .navbar-nav {
+    text-align: center;
+    --navbar-nav-margin: 0;
+  }
+  
+  #headerChart .nav-link {
+    --nav-link-margin: 150px;
+  }
+}

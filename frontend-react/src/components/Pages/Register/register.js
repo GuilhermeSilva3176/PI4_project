@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './register.css';
 import MinimalHeader from '../../Global/minimalHeader';
-import {Container, Form, Row} from "react-bootstrap";
+import { Container, Form, Row } from "react-bootstrap";
 import InputComponent from "./components/InputComponent";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Registrar = () => {
     const [name, setName] = useState('');
@@ -70,37 +70,51 @@ const Registrar = () => {
 
     return (
         <div className="bodyValue">
-            <MinimalHeader/>
+            <MinimalHeader />
             <Container className="containerCenter">
-                <div className="flutuante">
-                    <div className="cadastro-box">
-                        <h1>Registrar</h1>
+                <div className="floatregister">
+                    <div className="register-box">
+                        <h1 className="titleRegister">Registrar</h1>
                         <Form onSubmit={handleSubmit}>
+
+                            <div className="textlabel">
+
+                                <Row className="row-margin">
+                                    <InputComponent label="Nome" inputType="text" value={name}
+                                        onChange={(event) => setName(event.target.value)} />
+
+                                    <InputComponent label="CPF" inputType="text" value={cpf}
+                                        onChange={handleCpf} />
+                                </Row>
+                                <Row className="row-margin">
+                                    <InputComponent label="Email" inputType="email" value={email}
+                                        onChange={(event) => setEmail(event.target.value)} />
+
+                                    <InputComponent label="Senha" inputType="password" value={password}
+                                        onChange={(event) => setPassword(event.target.value)} />
+                                </Row>
+                                <Row className="row-margin">
+                                    <InputComponent label="Nascimento" inputType="date" value={birthdate}
+                                        onChange={(event) => setBirthdate(event.target.value)} />
+
+                                    <InputComponent label="Telefone" inputType="tel" value={phone}
+                                        onChange={handlePhone} />
+                                </Row>
+
+                            </div>
+
+                            <div className="rendalabel">
+
+                                <Row className="row-margin">
+                                    <InputComponent label="Renda" inputType="number" value={income}
+                                        onChange={(event) => setIncome(event.target.value)} />
+                                </Row>
+                            </div>
+
                             <Row className="row-margin">
-                                <InputComponent label="Nome" inputType="text" value={name}
-                                                onChange={(event) => setName(event.target.value)}/>
-                                <InputComponent label="CPF" inputType="text" value={cpf}
-                                                onChange={handleCpf}/>
+                                <button className="btn-register" type="submit">Registrar</button>
                             </Row>
-                            <Row className="row-margin">
-                                <InputComponent label="Email" inputType="email" value={email}
-                                                onChange={(event) => setEmail(event.target.value)}/>
-                                <InputComponent label="Senha" inputType="password" value={password}
-                                                onChange={(event) => setPassword(event.target.value)}/>
-                            </Row>
-                            <Row className="row-margin">
-                                <InputComponent label="Nascimento" inputType="date" value={birthdate}
-                                                onChange={(event) => setBirthdate(event.target.value)}/>
-                                <InputComponent label="Telefone" inputType="tel" value={phone}
-                                                onChange={handlePhone}/>
-                            </Row>
-                            <Row className="row-margin">
-                                <InputComponent label="Renda" inputType="number" value={income}
-                                                onChange={(event) => setIncome(event.target.value)}/>
-                            </Row>
-                            <Row className="row-margin">
-                                <button className="btnCad" type="submit">Registrar</button>
-                            </Row>
+
                         </Form>
                     </div>
                 </div>

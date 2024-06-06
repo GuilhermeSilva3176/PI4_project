@@ -42,9 +42,9 @@ function Login(){
   return(
     <div className="bodyValue">
     <MinimalHeader/>
-    <div className="flutuante">
+    <div className="float-login">
       <div className="login-box">
-        <p className="titulo"><span className="underline"></span>Entrar</p>
+        <p className="title">Entrar</p>
 
           <Form onSubmit={handleSubmit}>
               <div className="textbox">
@@ -53,12 +53,12 @@ function Login(){
               </div>
 
               <div className="textbox">
-                <InputComponent inputType="password" label="Senha" value={password}
-                onChange={(event) => setPassword(event.target.value)}/>
+                    <InputComponent label="Senha" inputType="password" value={password}
+                                onChange={(event) => setPassword(event.target.value)}/>
               </div>
 
-              <div className="subscribe">
-                  <p>Not signed yet?&nbsp;<Link to="/register">Clique aqui</Link></p>
+              <div className="register">
+                  <p>Não Cadastrado?&nbsp;<Link to="/register">Clique aqui</Link></p>
               </div>
               <button type="submit" className="btn-login">Login</button>
             </Form>

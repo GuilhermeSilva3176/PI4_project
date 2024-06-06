@@ -1,94 +1,92 @@
 @import url(../../../configs/configurationStyle/style.css);
 
 .bodyValue {
-  background: url("../../../../public/images/bglogin.png");
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: url("../../../../public/images/bglogin.png");
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .float-login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  width: 580px;
-  border-radius: 25px;
-  background-image: linear-gradient(180deg, #1e2d52bf 0%, #40579299 100%);
-  padding: 5px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 580px;
+    border-radius: 25px;
+    background-image: linear-gradient(180deg, #1e2d52bf 0%, #40579299 100%);
+    padding: 5px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
 }
 
 .login-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .title {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 35px;
 }
 
 .textbox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
-.textbox input{
-  border: none;
-  height: 45px;
-  width: 380px;
-  border: #ffffff;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
-  box-sizing: border-box;
-  margin-top: -10px;
-  border-radius: 5px;
+.textbox input {
+    border: none;
+    height: 45px;
+    width: 380px;
+    border: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    margin-top: -10px;
+    border-radius: 5px;
 }
 
 .textbox p {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .register {
-  margin-bottom: 25px;
-  position: relative;
-  top: -10px;
+    margin-bottom: 25px;
+    position: relative;
+    top: -10px;
 }
 
 .register p {
-  font-size: 20px;
+    font-size: 20px;
 }
 
-.subscribe a:visited {
-  color: rgb(214, 1, 214)
-}
-
-.subscribe a:visited:hover, a:hover {
-  color: rgb(172, 0, 172)
+.register a:visited {
+    color: rgb(214, 1, 214)
 }
 
 .btn-login {
-  background-color: rgb(36, 74, 165) !important;
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  transition: background-color 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+    background-color: rgb(36, 74, 165) !important;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .btn-login:hover {
-  background-color: #003274 !important;
+    background-color: #003274 !important;
 }

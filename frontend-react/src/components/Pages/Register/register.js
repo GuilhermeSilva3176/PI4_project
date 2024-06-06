@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './register.css';
 import MinimalHeader from '../../Global/minimalHeader';
-import { Container, Form, Row } from "react-bootstrap";
+import {Container, Form, Row} from "react-bootstrap";
 import InputComponent from "./components/InputComponent";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Registrar = () => {
     const [name, setName] = useState('');
@@ -42,6 +42,7 @@ const Registrar = () => {
             .then(() => {
                 alert('Usuário registrado com sucesso!')
                 goToLogin()
+
             })
             .catch(error => {
                 alert('Erro ao registrar usuário: ' + error)
@@ -102,16 +103,21 @@ const Registrar = () => {
 
                             </div>
 
-                            <div className="rendalabel">
-
+                            <div>
                                 <Row className="row-margin">
-                                    <InputComponent label="Renda" inputType="number" value={income}
-                                        onChange={(event) => setIncome(event.target.value)} />
+                                    <p>Renda Mensal</p>
+                                    <div className="input-group mb-3">
+                                        <span className="input-group-text">R$</span>
+                                        <input type="text" className="form-control" />
+                                        <span className="input-group-text">.00</span>
+                                    </div>
                                 </Row>
                             </div>
 
                             <Row className="row-margin">
-                                <button className="btn-register" type="submit">Registrar</button>
+                                <div className="containerCenter">
+                                    <button className="btn-register" type="submit">Registrar</button>
+                                </div>
                             </Row>
 
                         </Form>

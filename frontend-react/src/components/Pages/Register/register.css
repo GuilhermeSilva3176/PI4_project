@@ -49,17 +49,7 @@
     border-radius: 5px;
 }
 
-.rendalabel input{
-    border: none;
-    height: 40px;
-    box-sizing: border-box;
-    margin-top: -10px;
-    border-radius: 5px;
-
-  }
-
 .btn-register{
-    margin-bottom: 15px;
     border-radius: 5px;
     background-color: rgb(29, 86, 198) !important;
     font-size: 20px;

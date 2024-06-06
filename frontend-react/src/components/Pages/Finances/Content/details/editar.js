@@ -1,5 +1,6 @@
 import React from "react";
 import './editar.css';
+import PropTypes from "prop-types";
 
 function Editar({ onClose, show, item, handleEditar }) {
     const [nome, setNome] = React.useState(item.name);
@@ -30,8 +31,8 @@ function Editar({ onClose, show, item, handleEditar }) {
                         <p className="valueNameTitle">Tipo:</p>
                         <select className="valuesChange" value={tipo} onChange={(e) => setTipo(e.target.value)} required>
                             <option className="optionsEditar" value="">Selecione o tipo</option>
-                            <option className="optionsEditar" value="Despesa">Despesa</option>
-                            <option className="optionsEditar" value="Renda">Renda</option>
+                            <option className="optionsEditar" value="EXPENSE">Despesa</option>
+                            <option className="optionsEditar" value="INCOME">Renda</option>
                         </select>
                     </label>
                     <button type="submit">Salvar</button>
@@ -39,6 +40,12 @@ function Editar({ onClose, show, item, handleEditar }) {
             </div>
         </div>
     );
+}
+Editar.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
+    item: PropTypes.object.isRequired,
+    handleEditar: PropTypes.func.isRequired
 }
 
 export default Editar;

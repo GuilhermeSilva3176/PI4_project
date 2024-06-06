@@ -4,7 +4,6 @@ import com.fitfinance.domain.Finance;
 import com.fitfinance.domain.User;
 import com.fitfinance.exception.NotFoundException;
 import com.fitfinance.repository.FinanceRepository;
-import com.fitfinance.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -17,7 +16,6 @@ import java.util.List;
 @Log4j2
 public class FinanceService {
     private final FinanceRepository financeRepository;
-    private final UserRepository userRepository;
 
     public List<Finance> getAllFinances() {
         return financeRepository.findAll();

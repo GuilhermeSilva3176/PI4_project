@@ -3,9 +3,9 @@ package com.fitfinance.request;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fitfinance.domain.FinanceType;
-import com.fitfinance.domain.User;
+import com.fitfinance.domain.InvestmentType;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,24 +17,29 @@ import java.time.LocalDate;
 @Setter
 @Builder
 @ToString
-public class FinancePutRequest {
-    @NotNull
+public class InvestmentPutRequest {
+    @NotBlank(message = "The field 'id' is required")
+    @Schema(description = "Investment's id", example = "1")
     private Long id;
     @NotBlank(message = "The field 'name' is required")
+    @Schema(description = "Finance's name", example = "Cachaça")
     private String name;
     @NotBlank(message = "The field 'value' is required")
-    private double value;
+    @Schema(description = "Finance's value", example = "150.00")
+    private Double price;
     @NotBlank(message = "The field 'type' is required")
-    private FinanceType type;
-    @NotBlank(message = "The field 'description' is required")
-    private String description;
+    @Schema(description = "Investment's type", example = "STOCK")
+    private InvestmentType type;
+    @NotBlank(message = "The field 'quantity' is required")
+    @Schema(description = "Investment's quantity", example = "1")
+    private Integer quantity;
     @NotBlank(message = "The field 'startDate' is required")
     @JsonProperty("start_date")
     private LocalDate startDate;
     @NotBlank(message = "The field 'endDate' is required")
     @JsonProperty("end_date")
     private LocalDate endDate;
-    @NotBlank(message = "The field 'user' is required")
+    @Schema(description = "Finance's user", example = "User")
     @JsonIgnore
-    private User user;
+    private UserPostRequest user;
 }

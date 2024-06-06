@@ -22,8 +22,8 @@ logging:
     org:
       hibernate:
         SQL: INFO
-      springframework.security: INFO
-
+#      springframework.security: INFO
+      springframework.orm.jpa.JpaSystemException: DEBUG
 management:
   endpoints:
     web:

@@ -14,6 +14,7 @@ import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface FinanceMapper {
+    @Mapping(source = "type", target = "type")
     Finance toFinance(FinancePostRequest request);
 
     @Mapping(source = "id", target = "id")

@@ -40,8 +40,10 @@ public class User implements UserDetails {
     private double income;
     @Column(nullable = false)
     private String roles;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+    @OneToMany(mappedBy = "user")
+    private List<Finance> finances;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

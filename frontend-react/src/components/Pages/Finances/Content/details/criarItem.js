@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import './criarItem.css';
 
 function CriarItem({ onClose, show, handleCriar }) {
@@ -30,8 +30,8 @@ function CriarItem({ onClose, show, handleCriar }) {
             Tipo:
             <select value={tipo} onChange={(e) => setTipo(e.target.value)} required>
               <option className="optionsCriar" value="">Selecione o tipo</option>
-              <option className="optionsCriar" value="Despesa">Despesa</option>
-              <option className="optionsCriar" value="Renda">Renda</option>
+              <option className="optionsCriar" value="EXPENSE">Despesa</option>
+              <option className="optionsCriar" value="INCOME">Renda</option>
             </select>
           </label>
           <button type="submit">Criar</button>

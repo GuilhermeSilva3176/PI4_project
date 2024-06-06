@@ -3,6 +3,7 @@ import Editar from "./editar";
 import CriarItem from "./criarItem";
 import './detalhesFinancas.css';
 import axios from "axios";
+import {USER_TOKEN_REF} from "../../../../../constants/constants";
 
 function Detalhes({onClose, show, financeList}) {
     const [showEditar, setShowEditar] = useState(false);
@@ -17,20 +18,19 @@ function Detalhes({onClose, show, financeList}) {
             value: valor,
             type: tipo,
             description: "Description", //Will have utility in the future
-            start_date: Date.now(),
-            end_date: Date.now()
+            start_date: new Date().toISOString().split('T')[0],
+            end_date: new Date().toISOString().split('T')[0]
         }
 
         axios.put('http://localhost:8080/api/v1/finances', financePutRequest, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
             }
         }).then(response => {
                 if (response.status === 200) {
                     console.log(`Editar item com ID ${id}, nome: ${nome}, valor: ${valor}, tipo: ${tipo}`)
                     alert("Item editado com sucesso!")
-                    setShowEditar(false)
                     window.location.reload()
                 }
         }).catch(error => {
@@ -46,22 +46,23 @@ function Detalhes({onClose, show, financeList}) {
             value: valor,
             type: tipo,
             description: "Description", //Will have utility in the future
-            start_date: Date.now(),
-            end_date: Date.now()
+            start_date: new Date().toISOString().split('T')[0],
+            end_date: new Date().toISOString().split('T')[0]
         }
+
+        console.log(financePostRequest)
 
         axios.post('http://localhost:8080/api/v1/finances', financePostRequest, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
             }
         })
             .then(response => {
                 if (response.status === 201) {
                     console.log(`Criar novo item com nome: ${nome}, valor: ${valor}, tipo: ${tipo}`);
                     alert("Item criado com sucesso!")
-                    setShowCriar(false)
-                    window.location.reload()
+                    // window.location.reload()
                 }
             })
             .catch(error => {
@@ -71,6 +72,21 @@ function Detalhes({onClose, show, financeList}) {
     };
 
     const handleExcluir = (tipo, id) => {
+        // Implemente a lógica de exclusão aqui
+        axios.delete(`http://localhost:8080/api/v1/finances/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`
+            }
+        }).then(response => {
+            if (response.status === 204) {
+                alert("Item excluído com sucesso!")
+                // window.location.reload()
+            }
+        }).catch(error => {
+            console.error(error);
+            alert("Erro ao excluir item " + error)
+        })
+
         console.log(`Excluir ${tipo} com ID ${id}`);
     };
 
@@ -83,7 +99,7 @@ function Detalhes({onClose, show, financeList}) {
                 {editItem && <Editar show={showEditar} onClose={() => setShowEditar(false)} item={editItem}
                                      handleEditar={handleEditar}/>}
                 <div className="table-createbtn">
-                    <table className="tabela-detalhesFinancas">
+                    <table className="tabela-detalhesFinancas table">
                         <thead>
                         <tr>
                             <th>Nome</th>
@@ -104,8 +120,8 @@ function Detalhes({onClose, show, financeList}) {
                                         <div className="dropdown-content">
                                             <a href="#editar" className="botao-editar" onClick={(e) => {
                                                 e.preventDefault();
-                                                setShowEditar(true);
                                                 setEditItem(finance);
+                                                setShowEditar(true);
                                             }}>Editar</a>
                                             <a href="#excluir" className="botao-excluir" onClick={(e) => {
                                                 e.preventDefault();

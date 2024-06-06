@@ -69,8 +69,12 @@
   font-size: 20px;
 }
 
-.register a:visited {
+.subscribe a:visited {
   color: rgb(214, 1, 214)
+}
+
+.subscribe a:visited:hover, a:hover {
+  color: rgb(172, 0, 172)
 }
 
 .btn-login {

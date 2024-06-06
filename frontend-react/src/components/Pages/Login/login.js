@@ -27,12 +27,12 @@ function Login(){
             .then(response => {
                 if (response.status === 200) {
                     localStorage.setItem('user-token', response.data.access_token)
+                    localStorage.setItem('token-expiry-date', `${Date.now() + 86400000}`) // Now + 24 hours
                 }
             })
             .then(() => {
                 alert('Usuário logado com sucesso!')
                 goToHome()
-
             })
             .catch(error => {
                 alert('Erro ao logar usuário: ' + error)

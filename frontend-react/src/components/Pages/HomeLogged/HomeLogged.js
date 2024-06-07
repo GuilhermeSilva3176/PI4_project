@@ -66,7 +66,7 @@ const HomeLogged = () => {
     series: [10, 50],
     options: {
       colors: ["#700000", "#19a2fd"],
-      
+
       chart: {
         foreColor: "#ffffff",
         type: "pie",
@@ -76,11 +76,11 @@ const HomeLogged = () => {
       dataLabels: {
         enabled: true,
         style: {
-          fontSize: "24px",
+          fontSize: "20px"
         },
       },
       legend: {
-        position: "right",
+        position: "bottom",
         fontSize: "18px",
       },
       responsive: [
@@ -109,19 +109,19 @@ const HomeLogged = () => {
         <p>Seja bem-vindo ao nosso sistema de finanças pessoais.</p>
       </div>
       <div className="contentHomeLogged">
-        <div className="pie-Saldo">
+        <div className="pie-Saldo col-md-5 align-self-center">
           <Chart
             options={state.options}
             series={state.series}
             type="pie"
-            width="780"
+            width="100%"
           />
         </div>
 
-        <div  className="line-div"></div>
+        <div className="line-div"></div>
 
-        <div className="container text-center">
-          <div className="row">
+        <div className="container-homeLogged text-center col-md-5 align-self-center">
+          <div className="row-HomeLogged-principal">
             <div className="contentGridSaldo">
               <h3>Saldo Projetado:</h3>
               <p>
@@ -129,11 +129,13 @@ const HomeLogged = () => {
                   ? "Você está no vermelho..."
                   : "Excelente, finanças em Dia!"}
               </p>
-              <p>{userIncome >= 0 ? "R$ " + userIncome : "-R$ " + userIncome}</p>
+              <p>
+                {userIncome >= 0 ? "R$ " + userIncome : "-R$ " + userIncome}
+              </p>
             </div>
           </div>
-          <div className="row">
-            <div className="col">
+          <div className="row-HomeLogged">
+            <div className="col-HomeLogged-Plus">
               <div className="contentGrid">
                 <h5>Maior Despesa</h5>
                 <p>{biggestExpense}</p>
@@ -142,7 +144,7 @@ const HomeLogged = () => {
                 </button>
               </div>
             </div>
-            <div className="col">
+            <div className="col-HomeLogged-Minus">
               <div className="contentGrid">
                 <h5>Menor Despesa</h5>
                 <p>{smallestExpense}</p>
@@ -152,23 +154,23 @@ const HomeLogged = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col">
-            <div className="contentGrid">
-              <h5>Maior Investimento</h5>
-              <p>{biggestInvestment}</p>
-              <button onClick={navigate("/investimentos")}>
-                Acessar Investimentos
-              </button>
+          <div className="row-HomeLogged">
+            <div className="col-HomeLogged-Plus">
+              <div className="contentGrid">
+                <h5>Maior Investimento</h5>
+                <p>{biggestInvestment}</p>
+                <button onClick={navigate("/investimentos")}>
+                  Acessar Investimentos
+                </button>
               </div>
             </div>
-            <div className="col">
-            <div className="contentGrid">
-              <h5>Menor Investimento</h5>
-              <p>{smallestInvestment}</p>
-              <button onClick={navigate("/investimentos")}>
-                Acessar Investimentos
-              </button>
+            <div className="col-HomeLogged-Minus">
+              <div className="contentGrid">
+                <h5>Menor Investimento</h5>
+                <p>{smallestInvestment}</p>
+                <button onClick={navigate("/investimentos")}>
+                  Acessar Investimentos
+                </button>
               </div>
             </div>
           </div>
@@ -177,5 +179,4 @@ const HomeLogged = () => {
     </div>
   );
 };
-
 export default HomeLogged;

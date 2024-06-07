@@ -74,3 +74,99 @@
     --nav-link-margin: 150px;
   }
 }
+
+@media (max-width: 1422px) {
+
+  .contentHomeLogged {
+      flex-direction: column;
+      align-items: center;
+      
+  }
+
+  .rootHomeLogged-div {
+    margin-top: 30px;
+  }
+
+  
+  .contentGrid button {
+      width: 100%;
+  }
+
+  .contentGridSaldo h3, .contentGrid h5 {
+      font-size: 28px;
+  }
+
+  .contentGridSaldo p, .contentGrid p {
+      font-size: 20px;
+  }
+
+  .pie-Saldo, .container-homeLogged {
+      width: 90%;
+  }
+
+  
+
+  .row-HomeLogged {
+      flex-direction: column;
+  }
+
+  .col-HomeLogged-Minus, .col-HomeLogged-Plus {
+      margin: 10px 0;
+  }
+
+  .line-div {
+      border-left: none;
+      border-top: 1px white solid;
+      width: 100%;
+      margin: 20px;
+  }
+
+  .title-div h1 {
+      margin: 0;
+  }
+
+  .pie-Saldo {
+      width: 100% !important;
+      max-width: 400px;
+  }
+}
+
+@media (max-width: 570px) {
+  .title-div h1 {
+      font-size: 24px;
+      --title-size: 15vh;
+  }
+
+  .row-HomeLogged {
+    --margin-top-size: 10px;
+}
+
+  .title-div p {
+      font-size: 16px;
+  }
+
+  .contentGrid button {
+      width: 90%;
+  }
+
+  .contentGridSaldo {
+    --heigh-homeLogSize: 100px;
+  }
+
+  .row-HomeLogged-principal {
+    --heigh-homeLogSize: 100px;
+  }
+
+  .contentGridSaldo h3, .contentGrid h5 {
+      font-size: 16px;
+  }
+
+  .contentGridSaldo p, .contentGrid p {
+      font-size: 14px;
+  }
+
+  .pie-Saldo {
+      width: 100% !important;
+      max-width: 300px;
+  }
+}

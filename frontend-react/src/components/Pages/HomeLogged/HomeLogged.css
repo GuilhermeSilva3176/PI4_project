@@ -1,3 +1,5 @@
+@import url(../../../configs/configurationStyle/style.css);
+
 .rootHomeLogged-div {
     height: 94.5vh;
     width: 100%;
@@ -6,32 +8,71 @@
     flex-direction: column;
     align-items: center;
 }
-
+  
 .contentHomeLogged {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    width: 98%;
+    flex-wrap: wrap;
+}
 
+.pie-Saldo {
+    margin-right: 20px;
+}
+
+.line-div {
+    border-left: 1px white solid;
 }
 
 .title-div h1 {
-    margin: 0 20vh;
+    margin: 0 var(--title-size, 20vh);
+}
+  
+.row-HomeLogged {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: var(--margin-top-size, 25px);
+}
+  
+.col-HomeLogged-Minus, .col-HomeLogged-Plus {
+    flex: 1;
+    margin: 0;
+}
+
+.col-HomeLogged-Minus {
+    margin-left: 10px;
+}
+
+.col-HomeLogged-Plus {
+    margin-right: 10px;
+}
+
+.row-HomeLogged-principal {
+    background-image: linear-gradient(180deg, #1E2D52 50%, #1E2D52 75%);
+    height: var(--heigh-homeLogSize, 150px);
+    border-radius: 10px;
+}
+
+.contentGridSaldo {
+    height: var(--heigh-homeLogSize, 150px);
+    border-radius: 10px;
 }
 
 .contentGrid {
     background-image: linear-gradient(180deg, #1E2D52 50%, #1E2D52 75%);
     border-radius: 5px;
-    margin-top: 15px;
 }
 
-.contentGridSaldo{
-    background-image: linear-gradient(180deg, #1E2D52 50%, #1E2D52 75%);
-    border-radius: 5px;
-    margin-top: 15px;
-    
+.contentGridSaldo p {
+    margin-top: 0.7rem;
+    margin-bottom: 0.5rem;
 }
 
-.contentGrid button{
-    margin-bottom: 15px;
+.contentGrid button {
+    margin-bottom: 10px;
     background-color: rgb(36, 255, 0, 0.4);
     border: none;
     border-radius: 7px;

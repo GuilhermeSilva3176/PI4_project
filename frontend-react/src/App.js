@@ -17,10 +17,10 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          {/* <Route /*element={<PrivateWrapper />}> */}
+           <Route element={<PrivateWrapper />}>
             <Route path="/home" element={<HomeLogged/>}/>
-          {/* </Route> */}
-          <Route element={<PrivateWrapper />}>
+          </Route>
+          <Route >
             <Route path="/financas" element={<Finances/>}/>
           </Route>
           <Route element={<PrivateWrapper />}>

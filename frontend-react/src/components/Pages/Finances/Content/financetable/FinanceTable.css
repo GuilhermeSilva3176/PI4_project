@@ -2,6 +2,6 @@ table {
     border-collapse: collapse;
 }
 
-tr:nth-child(n + 10) {
+.valuesFinance:nth-child(n + 10) {
     display: none;
 }

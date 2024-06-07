@@ -11,7 +11,6 @@ function Detalhes({onClose, show, financeList}) {
     const [editItem, setEditItem] = useState(null);
 
     const handleEditar = (id, nome, valor, tipo) => {
-        // Implemente a lógica de edição aqui
         const financePutRequest = {
             id: id,
             name: nome,
@@ -40,7 +39,6 @@ function Detalhes({onClose, show, financeList}) {
     }
 
     const handleCriar = (nome, valor, tipo) => {
-        // Implemente a lógica de criação aqui
         const financePostRequest = {
             name: nome,
             value: valor,
@@ -72,7 +70,6 @@ function Detalhes({onClose, show, financeList}) {
     };
 
     const handleExcluir = (tipo, id) => {
-        // Implemente a lógica de exclusão aqui
         axios.delete(`http://localhost:8080/api/v1/finances/${id}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem(USER_TOKEN_REF)}`

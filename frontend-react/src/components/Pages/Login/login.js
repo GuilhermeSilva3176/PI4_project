@@ -5,6 +5,8 @@ import {Link, useNavigate} from "react-router-dom";
 import {Form} from "react-bootstrap";
 import axios from "axios";
 import InputComponent from "../Register/components/InputComponent";
+import { TOKEN_EXPIRATION_REF, USER_TOKEN_REF } from "../../../constants/constants";
+
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -12,7 +14,7 @@ function Login() {
 
     let navigate = useNavigate();
     const goToHome = () => {
-        navigate('/financas');
+        navigate('/home');
     }
 
     const handleSubmit = (event) => {
@@ -26,13 +28,13 @@ function Login() {
         axios.post('http://localhost:8080/api/v1/auth/authenticate', authenticationRequest)
             .then(response => {
                 if (response.status === 200) {
-                    localStorage.setItem('user-token', response.data.access_token)
+                    localStorage.setItem(USER_TOKEN_REF, response.data.access_token)
+                    console.log(localStorage.getItem)
                 }
             })
             .then(() => {
                 alert('Usuário logado com sucesso!')
                 goToHome()
-
             })
             .catch(error => {
                 alert('Erro ao logar usuário: ' + error)

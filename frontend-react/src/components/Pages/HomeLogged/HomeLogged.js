@@ -63,7 +63,7 @@ const HomeLogged = () => {
   }, []);
 
   const state = {
-    series: [10, 50],
+    series: [saldoUsado, saldoRestante],
     options: {
       colors: ["#700000", "#19a2fd"],
 

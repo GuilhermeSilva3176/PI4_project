@@ -17,13 +17,13 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-           <Route element={<PrivateWrapper />}>
+           <Route >
             <Route path="/home" element={<HomeLogged/>}/>
             </Route>
-          <Route element={<PrivateWrapper />}>
+          <Route >
             <Route path="/financas" element={<Finances/>}/>
           </Route>
-          <Route element={<PrivateWrapper />}>
+          <Route >
             <Route path="/investimentos" element={<Investimentos/>}/>
           </Route>
           <Route path="/login" element={<Login/>}/>

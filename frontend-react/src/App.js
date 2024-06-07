@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={<Home/>}/>
            <Route element={<PrivateWrapper />}>
             <Route path="/home" element={<HomeLogged/>}/>
-          </Route>
-          <Route >
+            </Route>
+          <Route element={<PrivateWrapper />}>
             <Route path="/financas" element={<Finances/>}/>
           </Route>
           <Route element={<PrivateWrapper />}>

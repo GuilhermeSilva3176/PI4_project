@@ -31,6 +31,5 @@ public class InvestmentGetResponse {
     @JsonProperty("end_date")
     private LocalDate endDate;
     @Schema(description = "Investment's user", example = "User")
-    @JsonIgnore
     private UserGetResponse user;
 }

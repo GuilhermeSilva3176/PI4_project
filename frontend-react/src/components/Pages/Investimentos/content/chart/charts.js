@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Chart from 'react-apexcharts'
+import Chart from 'react-apexcharts';
 import './chart.css';
 import PropTypes from "prop-types";
 

@@ -9,6 +9,17 @@ function Detalhes({ onClose, show, investmentsList }) {
   const [showComprar, setShowComprar] = useState(false);
   const [showVender, setShowVender] = useState(false);
 
+  const convertEnum = (type) => {
+    switch (type) {
+      case "STOCK":
+        return "Ação";
+      case "FII":
+        return "FII";
+      case "FIXED_INCOME":
+        return "Renda Fixa";
+    }
+  }
+
   const handleVerComprarClick = () => {
     setShowComprar(true);
   };
@@ -36,7 +47,7 @@ function Detalhes({ onClose, show, investmentsList }) {
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
                 <td>{item.price}</td>
-                <td>{item.type}</td>
+                <td>{convertEnum(item.type)}</td>
                 {/*<td>{item.precoAtual}</td> Actual price should be fetched from API, will be added later*/}
               </tr>
             ))}

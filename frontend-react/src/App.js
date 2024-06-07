@@ -17,9 +17,9 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route element={<PrivateWrapper />}>
+          {/* <Route /*element={<PrivateWrapper />}> */}
             <Route path="/home" element={<HomeLogged/>}/>
-          </Route>
+          {/* </Route> */}
           <Route element={<PrivateWrapper />}>
             <Route path="/financas" element={<Finances/>}/>
           </Route>
